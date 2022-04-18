@@ -49,11 +49,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
 [0] = LAYOUT_preonic_grid(
-  KC_Y, KC_C, KC_L, KC_M, KC_K, _______, _______, KC_Z, KC_F, KC_U, KC_QUOT, KC_BSPC,
-  LCTL_T(KC_I), LOPT_T(KC_S), LCMD_T(KC_R), LSFT_T(KC_T), KC_G, _______, _______, KC_P, RSFT_T(KC_N), RCMD_T(KC_E), ROPT_T(KC_A), RCTL_T(KC_O),
-  KC_Q, KC_V, KC_W, KC_D, KC_J, _______, _______, KC_B, KC_H, KC_SLSH, KC_DOT, KC_X,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, LOWER, KC_LSFT, _______, _______, KC_SPC, RAISE, _______, _______, _______
+  KC_Y, KC_C, KC_L, KC_M, KC_K, KC_NO, KC_NO, KC_Z, KC_F, KC_U, KC_QUOT, KC_BSPC,
+  LCTL_T(KC_I), LOPT_T(KC_S), LCMD_T(KC_R), LSFT_T(KC_T), KC_G, KC_NO, KC_NO, KC_P, RSFT_T(KC_N), RCMD_T(KC_E), ROPT_T(KC_A), RCTL_T(KC_O),
+  KC_Q, KC_V, KC_W, KC_D, KC_J, KC_NO, KC_NO, KC_B, KC_H, KC_SLSH, KC_DOT, KC_X,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+  KC_NO, KC_NO, KC_NO, LOWER, KC_LSFT, KC_NO, KC_NO, KC_SPC, RAISE, KC_NO, KC_NO, KC_NO
 ),
 
 /* Navigation
@@ -70,11 +70,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
 [_LOWER] = LAYOUT_preonic_grid(
-  KC_TAB, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_UP, KC_END, KC_BSPC,
-  LCTL_T(KC_ESC), KC_LOPT, KC_LCMD, KC_LSFT, _______, _______, _______, _______,KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENTER,
-  _______, _______, _______, _______, _______, _______, _______, _______, KC_PGUP, _______, KC_PGDN, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, KC_SPC, _______, _______, _______, _______
+  KC_TAB, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_UP, KC_END, KC_BSPC,
+  LCTL_T(KC_ESC), KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO,KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENTER,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PGUP, KC_NO, KC_PGDN, KC_NO,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
 ),
 
 // TODO: 
@@ -114,11 +114,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
 [_RAISE] = LAYOUT_preonic_grid(
-  KC_TAB, KC_BSLS, KC_EQL, KC_LCBR, _______, _______, _______, _______, KC_1, KC_2, KC_3, KC_BSPC,
-  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), LSFT_T(KC_LPRN), _______, _______, _______, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_DOT),
-  _______, KC_GRV, KC_MINUS, KC_LBRC, _______, _______, _______, _______, KC_7, KC_8, KC_9, KC_SEMICOLON,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, KC_SPC, _______, _______, _______, _______
+  KC_TAB, KC_BSLS, KC_EQL, KC_LCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_1, KC_2, KC_3, KC_BSPC,
+  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), LSFT_T(KC_LPRN), KC_NO, KC_NO, KC_NO, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_DOT),
+  KC_NO, KC_GRV, KC_MINUS, KC_LBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_SEMICOLON,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
 ),
 
 /* Media / Function
@@ -135,11 +135,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
  */
 [3] = LAYOUT_preonic_grid(
-  KC_VOLD, KC_MEDIA_PREV_TRACK, KC_MPLY, KC_MEDIA_NEXT_TRACK, KC_VOLU, _______, _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_BSPC,
-  KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, _______, _______, _______, KC_F5, RSFT_T(KC_F6), RCMD_T(KC_F7), ROPT_T(KC_F8), RCTL_T(KC_ENTER),
-  RESET,   DEBUG, _______, _______, _______, _______, _______, KC_F9, KC_F10, KC_F11, KC_F12, _______,
-  _______, _______,_______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, KC_SPC, _______, _______, _______, _______
+  KC_VOLD, KC_MEDIA_PREV_TRACK, KC_MPLY, KC_MEDIA_NEXT_TRACK, KC_VOLU, KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_BSPC,
+  KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_F5, RSFT_T(KC_F6), RCMD_T(KC_F7), ROPT_T(KC_F8), RCTL_T(KC_ENTER),
+  RESET,   DEBUG, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12, KC_NO,
+  KC_NO, KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
 )
 };
 
