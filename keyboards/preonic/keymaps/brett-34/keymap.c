@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_I), LOPT_T(KC_S), LCMD_T(KC_R), LSFT_T(KC_T), KC_G, KC_NO, KC_NO, KC_P, RSFT_T(KC_N), RCMD_T(KC_E), ROPT_T(KC_A), RCTL_T(KC_O),
   KC_Q, KC_V, KC_W, KC_D, KC_J, KC_NO, KC_NO, KC_B, KC_H, KC_SLSH, KC_DOT, KC_X,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, LOWER, KC_LSFT, KC_NO, KC_NO, KC_SPC, RAISE, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, LOWER, KC_NO, KC_NO, KC_NO, KC_SPC, RAISE, KC_NO, KC_NO, KC_NO
 ),
 
 /* Navigation
@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_ESC), KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO,KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENTER,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PGUP, KC_NO, KC_PGDN, KC_NO,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
 // TODO: 
@@ -102,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ^⌥⌘⇧ 
 /* Numbers / Symbol
   * ,-----------------------------------------------------------------------------------.
-  * |  Tab |  \|  |  =+  |  {}  |      |  __  |  __  |      |  1!  |  2@  |  3#  | Bksp |
+  * |  Tab |  \|  |  =+  |  {   |   }  |  __  |  __  |      |  1!  |  2@  |  3#  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * |ESC ^ | ,< ⌥ | .> ⌘ |  ()⇧ |      |  __  |  __  |  0   | 4$ ⇧ | 5% ⌘ | 6^ ⌥ |  . ^ |
+  * |ESC ^ | ,< ⌥ | .> ⌘ |  (⇧  |   )  |  __  |  __  |  0   | 4$ ⇧ | 5% ⌘ | 6^ ⌥ |  . ^ |
   * |------+------+------+------+------+-------------+------+------+------+------+------|
-  * |      |  `~  |  -_  |  []  |      |  __  |  __  |      |  7&  |  8*  |  9   |  ;:  |
+  * |      |  `~  |  -_  |  [   |   ]  |  __  |  __  |      |  7&  |  8*  |  9   |  ;:  |
   * |------+------+------+------+------+------|------+------+------+------+------+------|
   * |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -114,11 +114,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
 [_RAISE] = LAYOUT_preonic_grid(
-  KC_TAB, KC_BSLS, KC_EQL, KC_LCBR, KC_NO, KC_NO, KC_NO, KC_NO, KC_1, KC_2, KC_3, KC_BSPC,
-  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), LSFT_T(KC_LPRN), KC_NO, KC_NO, KC_NO, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_DOT),
-  KC_NO, KC_GRV, KC_MINUS, KC_LBRC, KC_NO, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_SEMICOLON,
+  KC_TAB, KC_BSLS, KC_EQL, KC_LCBR, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_1, KC_2, KC_3, KC_BSPC,
+  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), KC_LSPO, KC_RPRN, KC_NO, KC_NO, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_DOT),
+  KC_NO, KC_GRV, KC_MINUS, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_SEMICOLON,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
 /* Media / Function
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_F5, RSFT_T(KC_F6), RCMD_T(KC_F7), ROPT_T(KC_F8), RCTL_T(KC_ENTER),
   RESET,   DEBUG, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12, KC_NO,
   KC_NO, KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_SPC, KC_NO, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 )
 };
 
