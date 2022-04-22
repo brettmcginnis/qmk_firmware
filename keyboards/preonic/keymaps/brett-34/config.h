@@ -17,7 +17,7 @@
 #pragma once
 
 #define IGNORE_MOD_TAP_INTERRUPT
-// #define TAPPING_TERM 200
+#define TAPPING_TERM 300
 
 #ifdef AUDIO_ENABLE
 #    define STARTUP_SONG SONG(PREONIC_SOUND)

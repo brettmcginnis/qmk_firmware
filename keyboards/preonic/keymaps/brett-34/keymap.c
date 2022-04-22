@@ -1,20 +1,9 @@
-// Clean up
-// KC_NO modded no's should be regualr keys
-// ⌘⌥^
-// ⌘: /, O
-// ⌘ Shift: A, O, Left, Right)
-// ⌘ ⌥: L
-// ^ ⌥: O
-// ⌥: enter
-// ⌥ shift:
-
 // https://notgate.github.io/layout/
 // https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum
 // https://docs.qmk.fm/#/keycodes
 
-// word = otherWord(
-//  \n
-// )
+// Macros
+// Chrome, Slack, Android Studio, VS Code
 
 #include QMK_KEYBOARD_H
 
@@ -33,8 +22,6 @@ enum preonic_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-// when, is, fun companion, object, inline, val, init, run, also, apply, with, null, false, true, private, override, on
-// Ctrl < Option < Command < Shift
 /* ISRT
   * ,-----------------------------------------------------------------------------------.
   * |   Y  |   C  |   L  |   M  |   K  |  __  |  __  |   Z  |   F  |   U  |  '"  | Bksp |
@@ -45,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |------+------+------+------+------+------|------+------+------+------+------+------|
   * |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * |  __  |  __  |  __  |Lower |      |             |Space |RAISE |  __  |  __  |  __  |
+  * |  __  |  __  |  __  |Adjust|Lower |             |Space |Raise |  __  |  __  |  __  |
   * `-----------------------------------------------------------------------------------'
   */
 [0] = LAYOUT_preonic_grid(
@@ -53,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL_T(KC_I), LOPT_T(KC_S), LCMD_T(KC_R), LSFT_T(KC_T), KC_G, KC_NO, KC_NO, KC_P, RSFT_T(KC_N), RCMD_T(KC_E), ROPT_T(KC_A), RCTL_T(KC_O),
   KC_Q, KC_V, KC_W, KC_D, KC_J, KC_NO, KC_NO, KC_B, KC_H, KC_SLSH, KC_DOT, KC_X,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, LOWER, KC_NO, KC_NO, KC_NO, KC_SPC, RAISE, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, MO(_ADJUST), MO(_LOWER), KC_NO, KC_NO, KC_SPC, MO(_RAISE), KC_NO, KC_NO, KC_NO
 ),
 
 /* Navigation
@@ -69,63 +56,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |  __  |  __  |  __  |      |      |             |Space |      |  __  |  __  |  __  |
   * `-----------------------------------------------------------------------------------'
   */
-[_LOWER] = LAYOUT_preonic_grid(
+[_RAISE] = LAYOUT_preonic_grid(
   KC_TAB, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_HOME, KC_UP, KC_END, KC_BSPC,
   LCTL_T(KC_ESC), KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_NO,KC_LEFT, KC_DOWN, KC_RIGHT, KC_ENTER,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_PGUP, KC_NO, KC_PGDN, KC_NO,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
-// TODO: 
-// (	27 (14.2%)
-// 2. )	27 (14.2%)
-// 3. .	23 (12.1%)
-// 4. =	23 (12.1%)
-// 5. ,	18 (9.5%)
-// 6. {	16 (8.4%)
-// 7. }	16 (8.4%)
-// 8. "	12 (6.3%)
-// 9. >	9 (4.7%)
-// 10. <
-
-// From code: = {} () . _ , ? : -> || && !, :: @ " ~ ` < ' * * $ ;
-// All: `-=~!@#$%^&*()_+[]{}\|;:'",.<>/?
-// Pairs
-// `~
-// 
-
-// `~
-// 32 / 10 + (11 x 2)
-// 192.168.2.xxx
-// ?:
-// ^⌥⌘⇧ 
 /* Numbers / Symbol
   * ,-----------------------------------------------------------------------------------.
-  * |  Tab |  \|  |  =+  |  {   |   }  |  __  |  __  |      |  1!  |  2@  |  3#  | Bksp |
+  * |  Tab |  `~  |  -_  |  {   |   }  |  __  |  __  |  .   |  1!  |  2@  |  3#  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * |ESC ^ | ,< ⌥ | .> ⌘ |  (⇧  |   )  |  __  |  __  |  0   | 4$ ⇧ | 5% ⌘ | 6^ ⌥ |  . ^ |
+  * |ESC ^ | ,< ⌥ | .> ⌘ |  (⇧  |   )  |  __  |  __  |  0   | 4$ ⇧ | 5% ⌘ | 6^ ⌥ |Enter^|
   * |------+------+------+------+------+-------------+------+------+------+------+------|
-  * |      |  `~  |  -_  |  [   |   ]  |  __  |  __  |      |  7&  |  8*  |  9   |  ;:  |
+  * |      |  \|  |  =+  |  [   |   ]  |  __  |  __  |      |  7&  |  8*  |  9   |  ;:  |
   * |------+------+------+------+------+------|------+------+------+------+------+------|
   * |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |  __  |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
   * |  __  |  __  |  __  |      |      |             |Space |      |  __  |  __  |  __  |
   * `-----------------------------------------------------------------------------------'
   */
-[_RAISE] = LAYOUT_preonic_grid(
-  KC_TAB, KC_BSLS, KC_EQL, KC_LCBR, KC_RCBR, KC_NO, KC_NO, KC_NO, KC_1, KC_2, KC_3, KC_BSPC,
-  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), KC_LSPO, KC_RPRN, KC_NO, KC_NO, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_DOT),
-  KC_NO, KC_GRV, KC_MINUS, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_SEMICOLON,
+[_LOWER] = LAYOUT_preonic_grid(
+  KC_TAB, KC_GRV, KC_MINUS, KC_LCBR, KC_RCBR, KC_NO, KC_NO, KC_DOT, KC_1, KC_2, KC_3, KC_BSPC,
+  LCTL_T(KC_ESC), LOPT_T(KC_COMMA), LCMD_T(KC_DOT), KC_LSPO, KC_RPRN, KC_NO, KC_NO, KC_0, RSFT_T(KC_4), RCMD_T(KC_5), ROPT_T(KC_6), RCTL_T(KC_ENTER),
+  KC_NO, KC_BSLS, KC_EQL, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_NO, KC_7, KC_8, KC_9, KC_SEMICOLON,
   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
 /* Media / Function
   * ,-----------------------------------------------------------------------------------.
-  * | Vol- |   ⏮ |   ️⏯ |   ⏭  | Vol+ |  __  |  __  | fn1  | fn2  | fn3  | fn4  | Bksp |
+  * | Tab  |   ⏮ |   ️⏯ |   ⏭  | Vol+ |  __  |  __  | fn1  | fn2  | fn3  | fn4  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * |   ^  |   ⌥  |   ⌘  |   ⇧  |      |  __  |  __  | fin5 |fn6 ⇧ |fn7 ⌘ |fn8 ⌥ |Enter |
+  * |Esc ^ |   ⌥  |   ⌘  |   ⇧  |      |  __  |  __  | fin5 |fn6 ⇧ |fn7 ⌘ |fn8 ⌥ |Enter^|
   * |------+------+------+------+------+-------------+------+------+------+------+------|
   * |Reset |Debug |      |      |      |  __  |  __  | fn9  | fn10 | fn11 | fn12 |      |
   * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -134,40 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |  __  |  __  |  __  |      |      |             |Space |      |  __  |  __  |  __  |
   * `-----------------------------------------------------------------------------------'
  */
-[3] = LAYOUT_preonic_grid(
-  KC_VOLD, KC_MEDIA_PREV_TRACK, KC_MPLY, KC_MEDIA_NEXT_TRACK, KC_VOLU, KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_BSPC,
-  KC_LCTL, KC_LOPT, KC_LCMD, KC_LSFT, KC_NO, KC_NO, KC_NO, KC_F5, RSFT_T(KC_F6), RCMD_T(KC_F7), ROPT_T(KC_F8), RCTL_T(KC_ENTER),
+[_ADJUST] = LAYOUT_preonic_grid(
+  KC_TAB, KC_MEDIA_PREV_TRACK, KC_MPLY, KC_MEDIA_NEXT_TRACK, KC_VOLU, KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_BSPC,
+  LCTL_T(KC_ESC), KC_LOPT, KC_LCMD, KC_LSFT, KC_VOLD, KC_NO, KC_NO, KC_F5, RSFT_T(KC_F6), RCMD_T(KC_F7), ROPT_T(KC_F8), RCTL_T(KC_ENTER),
   RESET,   DEBUG, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12, KC_NO,
   KC_NO, KC_NO,KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
+  KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 )
 };
-
-// TODO Set ISRT to default
-// Raise / lower switch layers
-// Both Raise / Lower = one shot
-// set_single_persistent_default_layer(_ISRT);
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-    }
-  return true;
-}
