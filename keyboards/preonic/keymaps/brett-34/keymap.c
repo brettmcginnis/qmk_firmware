@@ -14,15 +14,8 @@ enum preonic_layers {
   _ADJUST
 };
 
-enum preonic_keycodes {
-  IRST = SAFE_RANGE,
-  LOWER,
-  RAISE,
-  ADJUST
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/* ISRT
+/* Default: ISRT
   * ,-----------------------------------------------------------------------------------.
   * |   Y  |   C  |   L  |   M  |   K  |  __  |  __  |   Z  |   F  |   U  |  '"  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -43,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, KC_NO, KC_NO, MO(_ADJUST), MO(_LOWER), KC_NO, KC_NO, KC_SPC, MO(_RAISE), KC_NO, KC_NO, KC_NO
 ),
 
-/* Navigation
+/* Raise: Navigation
   * ,-----------------------------------------------------------------------------------.
   * |  Tab |      |      |      |      |  __  |  __  |      | Home |  Up  | End  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -64,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
-/* Numbers / Symbol
+/* Lower: Numbers / Symbol
   * ,-----------------------------------------------------------------------------------.
   * |  Tab |  `~  |  -_  |  {   |   }  |  __  |  __  |  .   |  1!  |  2@  |  3#  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -85,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO
 ),
 
-/* Media / Function
+/* Adjust: Media / Function
   * ,-----------------------------------------------------------------------------------.
   * | Tab  |   ⏮ |   ️⏯ |   ⏭  | Vol+ |  __  |  __  | fn1  | fn2  | fn3  | fn4  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
